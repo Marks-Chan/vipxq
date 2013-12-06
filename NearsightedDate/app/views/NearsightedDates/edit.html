@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>相亲汇</title>
+
+<link href="public/stylesheets/base.css" rel="stylesheet" media="screen"
+	type="text/css" />
+<link href="public/stylesheets/index.css" rel="stylesheet"
+	media="screen" type="text/css" />
+
+<link
+	href="public/javascripts/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css"
+	rel="stylesheet" />
+
+<script language="javascript" type="text/javascript"
+	src="public/javascripts/jquery-1.8.2.min.js"></script>
+
+<script
+	src="public/javascripts/jQuery-File-Upload-9.1.0/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script
+	src="public/javascripts/jQuery-File-Upload-9.1.0/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script
+	src="public/javascripts/jQuery-File-Upload-9.1.0/js/jquery.fileupload.js"></script>
+<script
+	src="public/javascripts/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+
+<script language="javascript" type="text/javascript"
+	src="public/javascripts/NearsightedDates/NewDates.js"></script>
+
+<script src="public/javascripts/jquery.cookie.js"></script>
+
+
+</head>
+
+<body>
+
+	<!-- header s -->
+	<div id="header" class="LO_1_a">
+		<div id="nav" class="wContent cb">
+			<h1 class="fl">
+				<a href="/home" title="首页"><img src="public/images/nd/logo.png" /></a>
+			</h1>
+			<ul class="fr s1">
+				<li><a href="/home" class="hover1">首页</a></li>
+				<li><a href="#">我要发布</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- header e -->
+
+	<!-- main s -->
+	<div id="main" class="LO_3_b wContent cb">
+		<div class="LO_3_b_a cb">
+			<h2 class="fl"># 疯狂的LOFTER #</h2>
+			<a class="btn1 fr">保存并提交审核</a>
+		</div>
+
+
+		<script type="text/javascript">
+			
+		</script>
+		<div class="LO_3_b_b">
+			<dl class="s1">
+				<dt>
+					<p id="picture_wall">
+						<img id="upload_picture"
+							src="public/images/nd/default_potrait.jpg" width="200px"
+							height="250px" />
+					</p>
+
+					<p style="margin: 20px 0 0 100px;">
+						<img id="upload_btn" src="public/images/nd/btn_img1.jpg"
+							onmouseover="this.src='public/images/nd/btn_img2.jpg'"
+							onmouseout="this.src='public/images/nd/btn_img1.jpg'" />
+
+						<!-- The fileinput-button span is used to style the file input field as button -->
+						<input type="file" name="picture" id="fileupload_input"
+							style="display: none" />
+					</p>
+				</dt>
+				<dd class="mT20">
+					<textarea id="description" name="description"
+						style="width: 100%; height: 100px; color: #999; line-height: 25px; border-radius: 10px; outline: none; border: solid 1px #ccc;">个人简介，200字以内</textarea>
+				</dd>
+			</dl>
+			<dl class="s2 mT20">
+				<dt class="cb">
+					<h5>联系方式</h5>
+					<span>(必填，至少一项)</span>
+				</dt>
+				<dd class="cb">
+					<p>
+						Q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q：<input id="qq" type="text"
+							name="qq" />
+					</p>
+					<p>
+						微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;信：<input id="weixin"
+							type="text" name="weinxin" />
+					</p>
+				</dd>
+			</dl>
+			<dl class="s2 mT20">
+				<dt class="cb">
+					<h5>基本资料</h5>
+					<span>(必填)</span>
+				</dt>
+				<dd class="cb">
+
+
+					<table width="100%" class="LO_2_b_a_table1" id="basic_info_table">
+						<tr>
+							<td>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：<input alias="生日"
+								type="text" id="birthday" name="birthday" style="width: 100px;"></input>
+							</td>
+
+							<td>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<select
+								name="education" id="education" alias="学历"><option
+										value="0">本科</option>
+									<option value="0">研究生</option>
+									<option value="0">博士</option></select></td>
+
+							<td>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：<select
+								name="has_house" id="">
+									<option value="0">双方一起出首付，共同供房</option>
+									<option value="0">双方父母出首付，我们供房</option>
+									<option value="0">已全款购房</option>
+									<option value="0">已付首付，供房中</option>
+							</select></td>
+						</tr>
+
+						<tr>
+							<td>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：<select
+								name="constellation" id="constellation">
+
+									<option value="0">白羊座</option>
+									<option value="0">金牛座</option>
+									<option value="0">双子座</option>
+									<option value="0">巨蟹座</option>
+									<option value="0">狮子座</option>
+									<option value="0">处女座</option>
+									<option value="0">天秤座</option>
+									<option value="0">摩羯座</option>
+									<option value="0">水瓶座</option>
+									<option value="0">双鱼座</option>
+									<option value="0">天蝎座</option>
+									<option value="0">射手座</option>
+
+							</select></td>
+
+							<td>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：<select
+								name="career" id="">
+									<option value="0">公务员</option>
+									<option value="0">IT及通信电子</option>
+									<option value="0">金融</option>
+									<option value="0">贸易</option>
+									<option value="0">教师</option>
+									<option value="0">医生</option>
+									<option value="0">护士</option>
+									<option value="0">销售</option>
+									<option value="0">企业主或管理者</option>
+									<option value="0">在校大学生</option>
+									<option value="0">现役军官</option>
+									<option value="0">财务及审计</option>
+									<option value="0">律师</option>
+									<option value="0">建筑及土木工程设计师</option>
+									<option value="0">作家</option>
+									<option value="0">猎头及HR</option>
+									<option value="0">行政管理</option>
+									<option value="0">艺术家</option>
+									<option value="0">传媒行业</option>
+									<option value="0">演员及模特</option>
+							</select></td>
+
+							<td>工作地点：<select name="working_place" id="">
+									<option value="0">北京</option>
+									<option value="0">上海</option>
+									<option value="0">广州</option>
+									<option value="0">深圳</option>
+									<option value="0">其它</option>
+
+							</select></td>
+
+
+						</tr>
+
+						<tr>
+							<td>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<select
+								name="height" id="">
+									<option value="0">145以下</option>
+									<option value="0">145-150</option>
+									<option value="0">151-155</option>
+									<option value="0">156-160</option>
+									<option value="0">161-165</option>
+									<option value="0">166-170</option>
+									<option value="0">171-175</option>
+									<option value="0">176-180</option>
+									<option value="0">181-185</option>
+									<option value="0">185-190</option>
+									<option value="0">190以上</option>
+							</select></td>
+
+
+							<td>公司类型：<select name="company_type" id="">
+									<option value="0">政府机关</option>
+									<option value="0">国企</option>
+									<option value="0">央企</option>
+									<option value="0">外资</option>
+									<option value="0">合资</option>
+									<option value="0">民营</option>
+									<option value="0">自由职业</option>
+
+							</select></td>
+
+
+							<td>年&nbsp;收&nbsp;&nbsp;入：<select name="income" id="">
+									<option value="0">5万-7万</option>
+									<option value="0">7万-10万</option>
+									<option value="0">11万-15万</option>
+									<option value="0">16万-20万</option>
+									<option value="0">21万-25万</option>
+									<option value="0">26万-30万</option>
+									<option value="0">31万-40万</option>
+									<option value="0">41万-50万</option>
+									<option value="0">50万-100万</option>
+									<option value="0">100万以上</option>
+
+							</select></td>
+						</tr>
+						<tr>
+
+							<td>家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乡：<select
+								name="hometown" id="hometown">
+									<option value="北京市">北京市</option>
+									<option value="天津市">天津市</option>
+									<option value="河北省">河北省</option>
+									<option value="山西省">山西省</option>
+									<option value="内蒙古">内蒙古</option>
+									<option value="辽宁省">辽宁省</option>
+									<option value="吉林省">吉林省</option>
+									<option value="黑龙江省">黑龙江省</option>
+									<option value="上海市">上海市</option>
+									<option value="江苏省">江苏省</option>
+									<option value="浙江省">浙江省</option>
+									<option value="安徽省">安徽省</option>
+									<option value="福建省">福建省</option>
+									<option value="江西省">江西省</option>
+									<option value="山东省">山东省</option>
+									<option value="河南省">河南省</option>
+									<option value="湖北省">湖北省</option>
+									<option value="湖南省">湖南省</option>
+									<option value="广东省">广东省</option>
+									<option value="广西自治区">广西自治区</option>
+									<option value="海南省">海南省</option>
+									<option value="重庆市">重庆市</option>
+									<option value="四川省">四川省</option>
+									<option value="贵州省">贵州省</option>
+									<option value="云南省">云南省</option>
+									<option value="西藏自治区">西藏自治区</option>
+									<option value="陕西省">陕西省</option>
+									<option value="甘肃省">甘肃省</option>
+									<option value="青海省">青海省</option>
+									<option value="宁夏回族自治区">宁夏回族自治区</option>
+									<option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+									<option value="香港特别行政区">香港特别行政区</option>
+									<option value="澳门特别行政区">澳门特别行政区</option>
+									<option value="台湾省">台湾省</option>
+									<option value="其它">其它</option>
+							</select>
+						</tr>
+					</table>
+				</dd>
+			</dl>
+
+
+
+			<div class="mT20 cb">
+				<a class="btn1 fr">保存并提交审核</a>
+			</div>
+
+
+		</div>
+	</div>
+	<!-- main e -->
+
+	<!-- footer s -->
+	<div id="footer" class="wContent">
+		<div class="pad20 cb">
+			<div class="s1 fl">
+				<img src="public/images/nd/logo.png" />
+			</div>
+			<div class="s2 fr">
+				<p>粤ICP备08123701号</p>
+				<p>商务合作：xiangqindaren@sina.com.cn</p>
+			</div>
+		</div>
+	</div>
+	<!-- footer e -->
+
+</body>
+</html>

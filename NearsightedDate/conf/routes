@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       NearsightedDates.index	
+#NearsightedDates
+GET		/home									NearsightedDates.index	
+GET		/home/									NearsightedDates.index	
+GET		/display/{user_id}						NearsightedDates.display	
+GET		/user/show								NearsightedDates.display	
+GET		/new									NearsightedDates.create
+GET		/edit									NearsightedDates.edit
+GET		/update									NearsightedDates.update
+GET		/{page}.html							NearsightedDates.next
+GET		/next									NearsightedDates.next
+POST	/user/upload_pic						NearsightedDates.uploadPicture
+POST	/user/add_user							NearsightedDates.addUserInfo
+GET		/user/info								NearsightedDates.getUserInfo
+POST	/user/login								NearsightedDates.login
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

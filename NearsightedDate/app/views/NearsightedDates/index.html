@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>相亲汇-高品质的相亲</title>
+
+<link href="public/stylesheets/base.css" rel="stylesheet" media="screen"
+	type="text/css" />
+<link href="public/stylesheets/index.css" rel="stylesheet"
+	media="screen" type="text/css" />
+
+<script language="javascript" type="text/javascript"
+	src="public/javascripts/jquery-1.8.2.min.js"></script>
+<script src="public/javascripts/jquery.cookie.js"></script>
+<script language="javascript" type="text/javascript"
+	src="public/javascripts/nd/layer/layer.min.js"></script>
+</head>
+
+<body>
+
+
+<!-- header s -->
+<div id="header" class="LO_1_a">
+<div id="nav" class="wContent cb">
+<h1 class="fl"><a href="/home" title="首页"><img
+	src="public/images/nd/logo.png" /></a></h1>
+<ul class="fr s1">
+	<li><a href="/home" class="hover1">首页</a></li>
+	
+	#{if principal }
+	<li><a href="/user/show">${principal.getName()}</a></li>
+	#{/if}
+	#{else}
+    <li><a href="/new">我要发布</a></li>
+	#{/else}
+
+</ul>
+</div>
+</div>
+<!-- header e -->
+
+<!-- main s -->
+<div id="main" class="LO_1_b wContent cb"><!-- right s -->
+<div class="LO_1_b_a fr">
+<dl class="LO_1_b_a_a">
+	<dt>扫我加微信</dt>
+	<dd><a href="#"><img src="public/images/nd/ewm1.jpg"
+		width="190px" height="190px" /></a></dd>
+</dl>
+<dl class="LO_1_b_a_a">
+	<dt>扫我加新浪微博</dt>
+	<dd><a href="#"><img src="public/images/nd/ewm2.png"
+		width="190px" height="190px" /></a></dd>
+</dl>
+</div>
+
+<!-- right e --> <!-- left s -->
+<div class="LO_1_b_b">
+
+<div class="LO_1_b_b_a cb">
+<ul id="sex">
+	<li value=0><a href="#" class="hover2">全部</a></li>
+	<li value=1><a href="#">男生</a></li>
+	<li value=2><a href="#">女生</a></li>
+</ul>
+<ul id="city">
+	<li value=0><a href="#" class="hover2">全部</a></li>
+	<li value=1><a href="#">北京</a></li>
+	<li value=2><a href="#">上海</a></li>
+	<li value=3><a href="#">广州</a></li>
+	<li value=4><a href="#">深圳</a></li>
+</ul>
+</div>
+<div class="LO_1_b_b_b cb">
+
+#{list items:userSquareDTOs, as:'dto'}
+<dl class="each">
+	<dt><a href=display/${dto.id}><img src= ${dto.photo_url} /></a></dt>
+	<dd>${dto.brief_intro}</dd>
+</dl>
+#{/list}
+
+
+<div id="page-nav" class="text_c"
+	style="position: absolute; bottom: 0; width: 100%;"><a
+	href="next?page=1"><img src="public/images/nd/loading.png" /></a></div>
+
+</div>
+
+</div>
+<!-- left e --></div>
+<!-- main e -->
+
+<!-- footer s -->
+<div id="footer" class="wContent">
+<div class="pad20 cb">
+<div class="s1 fl"><img src="public/images/nd/logo.png" /></div>
+<div class="s2 fr">
+<p>粤ICP备08123701号</p>
+<p>商务合作：xiangqindaren@sina.com.cn</p>
+</div>
+</div>
+</div>
+<!-- footer e -->
+
+<div id="login" style="display: none;">
+<p style="line-height: 40px; width: 400px; text-align: center;">这里是QQ和微博的API登陆接口</p>
+
+<a
+	href="https://api.weibo.com/oauth2/authorize?client_id=101666497&redirect_uri=http%3A%2F%2F115.29.163.82%2Findex.php%2Fuser%2Fweibo_login&response_type=code"><img
+	src="weibo_login.png" title="点击进入授权页面" alt="点击进入授权页面" border="0" /></a></div>
+
+<script language="javascript" type="text/javascript"
+	src="public/javascripts/nd/jquery.masonry.min.js" charset="utf-8"></script>
+<script language="javascript" type="text/javascript"
+	src="public/javascripts/nd/jquery.infinitescroll.min.js"
+	charset="utf-8"></script>
+
+
+
+<script type="text/javascript">
+		$.layer({
+			shade : false,
+			type : 1,
+			area : [ '400px', 'auto' ],
+			title : false,
+			border : [ 5, 0.5, '#666', true ],
+			page : {
+				dom : '#login'
+			},
+			close : function(index) {
+				layer.close(index);
+				$('.layer_notice').show();
+			}
+		});
+	</script>
+
+<script type="text/javascript">
+		// 选中上次选择条件
+		//	var sexval = $.cookie("sex");
+		//	var cityval = $.cookie("city");
+
+		//	$("#sex li").find("a").removeClass("hover2");
+		//	$("#sex li[value=" + sexval + "] a").addClass("hover2");
+
+		//	$("#city li").find("a").removeClass("hover2");
+		//	$("#city li[value=" + cityval + "] a").addClass("hover2");
+	</script>
+
+<script>
+		// 性别，选中效果
+		$("#sex li").click(
+				function() {
+					$(this).children("a").addClass("hover2").parent()
+							.siblings().find("a").removeClass("hover2");
+
+					var el = $("#sex li .hover2");
+					$.cookie('sex', el.parent().val()); //设置cookie的值
+				});
+
+		// 城市，选中效果
+		$("#city li").click(
+				function() {
+					$(this).children("a").addClass("hover2").parent()
+							.siblings().find("a").removeClass("hover2");
+
+					var el = $("#city li .hover2");
+					console.log(el);
+					$.cookie('city', el.parent().val()); //设置cookie的值
+				});
+	</script>
+
+
+<script type="text/javascript">
+		setTimeout(
+				function() {
+					$(function() {
+						var $container = $('.LO_1_b_b_b');
+						$container.imagesLoaded(function() {
+							$container.masonry({
+								itemSelector : '.each',
+								columnWidth : 0
+							});
+						});
+
+						$container
+								.infinitescroll(
+										{
+											navSelector : '#page-nav', // 选择的分页导航 
+											nextSelector : '#page-nav a', // 选择的下一个链接到（第2页）
+											itemSelector : '.each', // 选择检索所有项目
+											loadingText : "加载中…",
+											donetext : "none",
+											dataType : 'json',//可以是json
+											template : function(data) {
+												//data表示服务端返回的json格式数据，这里需要把data转换成瀑布流块的html格式，然后返回给回到函数
+												console.log(data);
+												var infiniteTemplate = '<div class="LO_1_b_b_b cb">';
+												for ( var index = 0; index < data.length; index++) {
+													var info = data[index];
+													infiniteTemplate += '<dl class="each">';
+													infiniteTemplate += '<dt>';
+													infiniteTemplate += ('<a href="' + info.href + '">');
+													infiniteTemplate += ('<img src="' + info.src + '" /></a>');
+													infiniteTemplate += '</dt>';
+													infiniteTemplate += '<dd>'
+															+ info.desc
+															+ '</dd>';
+													infiniteTemplate += '</dl>';
+												}
+												infiniteTemplate += "</div>";
+
+												return infiniteTemplate;
+											},
+
+											loadingText : "加载中", //加载时显示的文字   
+											donetext : "加载完毕", //加载完数据(到达底部时)显示的文字提醒
+
+											debug : true
+										}, function(newElements) {
+
+											// 隐藏新的项目，而他们正在加载
+											var $newElems = $(newElements).css(
+													{
+														opacity : 0
+													});
+
+											// 确保的图像装载增加砖石布局
+											$newElems.imagesLoaded(function() {
+
+												// 元素展示准备
+												$newElems.animate({
+													opacity : 1
+												});
+												$container.masonry('appended',
+														$newElems, true);
+											});
+										});
+
+						//$(window).unbind('.infscr');
+						$("#page-nav a").click(function() {
+							$(document).trigger('retrieve.infscr');
+							return false;
+						});
+
+						$(document).ajaxError(function(e, xhr, opt) {
+							if (xhr.status == 404)
+								$("#page-nav a").remove();
+						});
+
+						$('<a href="#" id="retop">返回顶部</a>').appendTo('body')
+								.fadeOut().click(function() {
+									$(document).scrollTop(0);
+									$(this).fadeOut();
+									return false
+								});
+						var $retop = $('#retop');
+						function backTopLeft() {
+							var btLeft = $(window).width() / 2 + 478;
+							if (btLeft <= 950) {
+								$retop.css({
+									'left' : 955
+								})
+							} else {
+								$retop.css({
+									'left' : btLeft
+								})
+							}
+						}
+						backTopLeft();
+						$(window).resize(backTopLeft);
+						$(window).scroll(
+								function() {
+									if ($(document).scrollTop() === 0) {
+										$retop.fadeOut()
+									} else {
+										$retop.fadeIn()
+									}
+									if ($.browser.msie
+											&& $.browser.version == 6.0
+											&& $(document).scrollTop() !== 0) {
+										$retop.css({
+											'opacity' : 1
+										})
+									}
+								});
+
+					});
+				}, 500);
+	</script>
+
+
+
+
+</body>
+</html>

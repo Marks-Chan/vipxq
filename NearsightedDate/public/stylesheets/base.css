@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* LayOut_1 */
+
+/* =============================================================================
+   HTML5
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+
+/* GLOBAL */
+* { padding:0px; margin:0px; list-style:none; font-style:normal; }
+body { font-size:12px; font-family:"微软雅黑","宋体b8b\4f53"; color:#333333; background:#F5F4F2; overflow-x:hidden; }
+h1,h2,h3,h4,h5,h6 { font-size:14px; }
+img { border:none; }
+pre { white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; }
+a { text-decoration:none; color:#333333; }
+a:hover { color:#59C7E8; text-decoration:none;}
+
+.db { display:block; }
+.dn { display:none; }
+
+.fz14 { font-size:14px; }
+.fz16 { font-size:16px; }
+.fz18 { font-size:18px; }
+.fz20 { font-size:20px; }
+.fontb { font-weight:bold; }
+
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { zoom:1; overflow:hidden; }
+.cb1 { zoom:1; }
+.cb1:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+
+.mT5 { margin-top:5px; }
+.mT10 { margin-top:10px; }
+.mT15 { margin-top:15px; }
+.mT20 { margin-top:20px; }
+.mT30 { margin-top:30px; }
+.mB5 { margin-bottom:5px; }
+.mB10 { margin-bottom:10px; }
+.mB20 { margin-bottom:20px; }
+.mTB10 { margin-top:10px; margin-bottom:10px; }
+.mTB15 { margin-top:15px; margin-bottom:15px; }
+.mTB20 { margin-top:20px; margin-bottom:20px; }
+.mTB30 { margin-top:30px; margin-bottom:30px; }
+
+.pad5 { padding:5px; }
+.pad10 { padding:10px; }
+.pad15 { padding:15px; }
+.pad20 { padding:20px; }
+.pad25 { padding:25px; }
+.padL20 { padding-left:20px; }
+.padL15 { padding-left:15px; }
+.padB10 { padding-bottom:10px; }
+.pad_1 { padding:5px 10px; }
+.padLR10 { padding-left:10px; margin-right:10px; }
+.padLR20 { padding-left:20px; margin-right:20px; }
+
+.text_2em { text-indent:2em; }
+.text_d { text-decoration:line-through; }
+.text_c { text-align:center; }
+.text_ud { text-decoration:underline; }
+
+.hover1 { }
+.hover2 { color:#38B2DB; font-weight:bold; background:#F4F4F4 !important; }
+
+.btn1 { background:#ff6600; padding:0 20px; line-height:30px; color:#fff; font-size:18px; border-radius:5px; cursor:pointer; }
+.btn1:hover { background:#AD4500; color:#fff; }

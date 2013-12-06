@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>我的首页</title>
+
+
+<link href="@{'public/stylesheets/base.css'}" rel="stylesheet"
+	media="screen" type="text/css" />
+<link href="@{'public/stylesheets/index.css'}" rel="stylesheet"
+	media="screen" type="text/css" />
+
+
+<script language="javascript" type="text/javascript"
+	src="@{'public/javascripts/jquery-1.8.2.min.js'}"></script>
+
+</head>
+
+<body>
+
+<!-- header s -->
+<div id="header" class="LO_1_a">
+<div id="nav" class="wContent cb">
+<h1 class="fl"><a href="/home" title="首页"><img
+	src="@{'public/images/nd/logo.png'}" /></a></h1>
+<ul class="fr s1">
+	<li><a href="/home" class="hover1">首页</a></li>
+	
+	#{if principal }
+	<li><a href="/edit">编辑</a></li>
+	#{/if}
+	#{else}
+    <li><a href="#">${userInfo.name}</a></li>
+	#{/else}
+	
+</ul>
+</div>
+</div>
+<!-- header e -->
+
+<!-- main s -->
+<div id="main" class="LO_2_b wContent cb">
+<div class="LO_2_b_a">
+<h2>${userInfo.name}的资料</h2>
+<h5>自我介绍</h5>
+<div id="description" name="description"></div>
+<h5>联系方式</h5>
+<ul class="s1 cb">
+	<li>Q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q：<span
+		id="qq" name="qq">${userInfo.qq}</span></li>
+	<li>微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;信： <span id="weixin"
+		name="weixin">${userInfo.weixin}</span></li>
+</ul>
+<h5>基本资料</h5>
+<table width="100%" class="LO_2_b_a_table1">
+	<tr>
+		<td>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<span id="age">${userInfo.age}</span></td>
+		<td>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<span id="education">${userInfo.education}</span></td>
+		<td>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：<span id="has_house">${userInfo.has_house}</span></td>
+	</tr>
+	<tr>
+		<td>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：<span
+			id="constellation">${userInfo.weixin}</span></td>
+		<td id="carrer">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：<span
+			id="career">${userInfo.career}</span></td>
+		<td>家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乡：<span id="hometown">${userInfo.hometown}</span></td>
+	</tr>
+	<tr>
+		<td id="height">身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<span
+			id="height">${userInfo.height}</span></td>
+		<td>公司类型：<span id="company_type">${userInfo.company_type}</span></td>
+		<td>年&nbsp;收&nbsp;&nbsp;入：<span id="income">${userInfo.income}</span></td>
+	</tr>
+	<tr>
+		<td id="working_place">工作地点：<span id="working_place">${userInfo.working_place}</span></td>
+	</tr>
+</table>
+<div class=" mT20 cb">
+<h5 class="fl" style="margin-top: 0;">分享给身边的朋友们：</h5>
+<div>
+<div class="bshare-custom icon-medium">
+<div class="bsPromo bsPromo2"></div>
+<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博"
+	class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a
+	title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博"
+	class="bshare-neteasemb"></a><a title="更多平台"
+	class="bshare-more bshare-more-icon more-style-addthis"></a></div>
+<script type="text/javascript" charset="utf-8"
+	src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8"
+	src="http://static.bshare.cn/b/bshareC0.js"></script></div>
+</div>
+
+<div class="text_c mT30">
+#{list items:userInfo.photo_url,as:'photeDTO'} 
+<img src=${photeDTO.photo_url} width="500px"
+	height="500px" /> 
+	#{/list}</div>
+
+</div>
+</div>
+<!-- main e -->
+
+<script type="text/javascript">
+		function setFormValues() {
+			var vals = "";
+			$.get("next", vals, function success(response, status, xhr) {
+				console.log(response);
+
+				var o = response;
+				for (n in o) {
+					if (o.hasOwnProperty(n) && n) {
+						if ($("#" + n)) {
+							$("#" + n).html($("#" + n).html() + o[n]);
+						}
+					}
+				}
+			}, "json");
+		}
+	</script>
+
+<!-- footer s -->
+<div id="footer" class="wContent">
+<div class="pad20 cb">
+<div class="s1 fl"><img src="@{'public/images/nd/logo.png'}" /></div>
+<div class="s2 fr">
+<p>粤ICP备08123701号</p>
+<p>商务合作：xiangqindaren@sina.com.cn</p>
+</div>
+</div>
+</div>
+<!-- footer e -->
+
+</body>
+</html>
